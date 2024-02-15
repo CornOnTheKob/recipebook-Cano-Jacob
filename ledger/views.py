@@ -1,10 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse 
 
-
 def index(request):
     return HttpResponse('Recipe Book')
-
 
 def recipe_list(request):
     # paste context from here
@@ -74,7 +72,6 @@ def recipe_list(request):
 }
     return render(request, 'recipe_list.html', ctx)
 
-
 def recipe1(request):
     # paste context from here
     ctx = {
@@ -104,7 +101,6 @@ def recipe1(request):
     "link": "/recipe/1"
 }
     return render(request, 'recipes.html', ctx)
-
 
 def recipe2(request):
     # paste context from here
