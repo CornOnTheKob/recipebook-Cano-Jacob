@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Book</title>
+</head>
+<body>
+    <h1><a href = '/ledger/recipes/list'>Recipe Book</a></h1>
+    <h2>{{object.name}}</h2>
+    <h3>
+        <ul>
+            {% for ingredient in object.ingredients.all %}
+            <li>{{ ingredient.quantity }} of {{ ingredient.ingredient.name }}</li> 
+            <!--this means if naka foreign key, dapat dalawang beses mo sya invoke?-->
+          {% endfor %}
+        </ul>
+    </h3>
+</body>
+</html>
+

@@ -6,11 +6,11 @@
     <title>Recipe Book</title>
 </head>
 <body>
-    <h1><a href = '/recipes/list'>Recipe Book</a></h1>
+    <h1><a href = '/ledger/recipes/list'>Recipe Book</a></h1>
     <h2>
         <ul>
             {% for recipe in recipe_list %}
-            <li><a href= "{{ recipe.link }}" >{{ recipe.name }}</a></li>
+            <li><a href= "/ledger/recipe/{{ recipe.pk }}" >{{ recipe.name }}</a></li>
             {% endfor %}
         </ul>
     </h2>

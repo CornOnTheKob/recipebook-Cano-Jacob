@@ -1,5 +1,19 @@
 from django.shortcuts import render
-from django.http import HttpResponse 
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+
+from .models import Recipe
+
+
+class RecipeListView(ListView):
+    model = Recipe
+    template_name = 'recipe_list.html'
+
+
+class RecipeDetailView(DetailView):
+    model = Recipe
+    template_name = 'recipe_detail.html'
+
 
 def index(request):
     return HttpResponse('Recipe Book')
@@ -32,7 +46,7 @@ def recipe_list(request):
                     "quantity": "1 packet"
                 }
             ],
-            "link": "/recipe/1"
+            "link": "/ledger/recipe/1"
         },
         {
             "name": "Recipe 2",
@@ -66,7 +80,7 @@ def recipe_list(request):
                     "quantity": "1 kilo"
                 }
             ],
-            "link": "/recipe/2"
+            "link": "/ledger/recipe/2"
         }
     ]
 }
@@ -98,7 +112,7 @@ def recipe1(request):
             "quantity": "1 packet"
         }
     ],
-    "link": "/recipe/1"
+    "link": "/ledger/recipe/1"
 }
     return render(request, 'recipes.html', ctx)
 
@@ -136,10 +150,8 @@ def recipe2(request):
             "quantity": "1 kilo"
         }
     ],
-    "link": "/recipe/2"
+    "link": "/ledger/recipe/2"
 }
     return render(request, 'recipes.html', ctx)
-
-
 
 
