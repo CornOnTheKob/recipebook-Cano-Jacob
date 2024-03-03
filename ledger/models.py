@@ -1,12 +1,6 @@
 from django.db import models
-from datetime import datetime
 from django.urls import reverse
 
-"""
-Delete later
-Ingredient, Recipe and RecipeIngredient.
-Related_name: backward relation kunwari .. Author ng ano... relatedname = "books"
-"""
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=100)
@@ -29,7 +23,7 @@ class Recipe(models.Model):
 
 
 class RecipeIngredient(models.Model):
-    quantity = models.CharField(max_length=100)           #"3 cups and not necessarily 3 lang"
+    quantity = models.CharField(max_length=100)          
     ingredient = models.ForeignKey(
         'Ingredient',
         on_delete=models.CASCADE,
@@ -47,6 +41,11 @@ class RecipeIngredient(models.Model):
     def __str__(self):
         return f"{self.quantity} {self.ingredient}"
 
+    class Meta:
+        ordering = ['ingredient']
+        unique_together = [
+            ['quantity', 'ingredient'],
+        ]
 
 
 # Create your models here.

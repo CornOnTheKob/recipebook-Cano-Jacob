@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
@@ -17,6 +18,7 @@ class RecipeDetailView(DetailView):
 
 def index(request):
     return HttpResponse('Recipe Book')
+
 
 def recipe_list(request):
     # paste context from here
@@ -115,6 +117,7 @@ def recipe1(request):
     "link": "/ledger/recipe/1"
 }
     return render(request, 'recipes.html', ctx)
+
 
 def recipe2(request):
     # paste context from here
