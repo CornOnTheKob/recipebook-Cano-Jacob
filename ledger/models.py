@@ -40,6 +40,9 @@ class RecipeIngredient(models.Model):
     def __str__(self):
         return f"{self.quantity} {self.ingredient.name} in {self.recipe.name}"
 
+    class Meta:
+        ordering = ['ingredient']
+      
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
