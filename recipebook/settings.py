@@ -124,7 +124,7 @@ STATICFILES_DIRS = [
     BASE_DIR/'static',
 ]
 STATIC_URL = '/static/'
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/"media"
 LOGIN_REDIRECT_URL = "/recipes/list"
 LOGOUT_REDIRECT_URL = "/accounts/login"
